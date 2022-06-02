@@ -29,6 +29,10 @@ export const InputBox: React.FC = () => {
 					placeholder="rodrfx"
 					value={username}
 					onChange={handleInputName}
+					onInvalid={(e) =>
+						e.currentTarget.setCustomValidity('Insira seu nome de usuário!')
+					}
+					onInput={(e) => e.currentTarget.setCustomValidity('')}
 					required
 				/>
 				<button>
