@@ -25,8 +25,6 @@ type UserContextType = {
 		public_repos: number;
 	};
 	setUserData: (user: User) => void;
-	username: string;
-	setUsername: (username: string) => void;
 };
 
 export const UserContext = createContext<UserContextType>(
@@ -35,12 +33,9 @@ export const UserContext = createContext<UserContextType>(
 
 export const UserContextProvider = ({ children }: UserContextProps) => {
 	const [userData, setUserData] = useState({} as User);
-	const [username, setUsername] = useState('');
 
 	return (
-		<UserContext.Provider
-			value={{ userData, username, setUserData, setUsername }}
-		>
+		<UserContext.Provider value={{ userData, setUserData }}>
 			{children}
 		</UserContext.Provider>
 	);
