@@ -12,7 +12,7 @@ export const UserInfo: React.FC = () => {
 		<S.Container>
 			{isShowRepository ? (
 				<div>REPOSITORIO</div>
-			) : userData.name ? (
+			) : userData.login ? (
 				<>
 					<UserPerfil userData={userData} />
 					<UserNumbers userData={userData} />
