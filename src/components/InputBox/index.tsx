@@ -29,6 +29,7 @@ export const InputBox: React.FC = () => {
 					placeholder="rodrfx"
 					value={username}
 					onChange={handleInputName}
+					required
 				/>
 				<button>
 					<BsSearch type="submit" color={'#FFF'} />
