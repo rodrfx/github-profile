@@ -1,41 +1,30 @@
 import { createContext, ReactNode, useState } from 'react';
+import { Repository } from '../types/repository';
+import { User } from '../types/user';
 
-type UserContextProps = {
+type UserContextProviderProps = {
 	children: ReactNode;
 };
 
-export type User = {
-	avatar_url: string;
-	name: string;
-	login: string;
-	bio?: string;
-	followers: number;
-	following: number;
-	public_repos: number;
-};
-
-type UserContextType = {
-	userData: {
-		avatar_url: string;
-		name: string;
-		login: string;
-		bio?: string;
-		followers: number;
-		following: number;
-		public_repos: number;
-	};
+type UserContextProps = {
+	userData: User;
 	setUserData: (user: User) => void;
+	userRepositories: Repository[];
+	setUserRepositories: (repository: any) => void;
 };
 
-export const UserContext = createContext<UserContextType>(
-	{} as UserContextType
+export const UserContext = createContext<UserContextProps>(
+	{} as UserContextProps
 );
 
-export const UserContextProvider = ({ children }: UserContextProps) => {
+export const UserContextProvider = ({ children }: UserContextProviderProps) => {
 	const [userData, setUserData] = useState({} as User);
+	const [userRepositories, setUserRepositories] = useState([]);
 
 	return (
-		<UserContext.Provider value={{ userData, setUserData }}>
+		<UserContext.Provider
+			value={{ userData, userRepositories, setUserData, setUserRepositories }}
+		>
 			{children}
 		</UserContext.Provider>
 	);
