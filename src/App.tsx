@@ -1,9 +1,9 @@
+import { BrowserRouter } from 'react-router-dom';
 import { DefaultTheme, ThemeProvider } from 'styled-components';
 import { Header } from './components/Header';
-import { InputBox } from './components/InputBox';
-import { UserInfo } from './components/UserInfo';
 import { UserContextProvider } from './context/UserContext';
 import usePersistedState from './hooks/usePersistedState';
+import { Coordinator } from './routes/Coordinator';
 import { GlobalStyle } from './styles/global';
 import dark from './styles/themes/dark';
 import light from './styles/themes/light';
@@ -19,9 +19,10 @@ const App = () => {
 		<UserContextProvider>
 			<ThemeProvider theme={theme}>
 				<GlobalStyle />
-				<Header toggleTheme={toggleTheme} />
-				<InputBox />
-				<UserInfo />
+				<BrowserRouter>
+					<Header toggleTheme={toggleTheme} />
+					<Coordinator />
+				</BrowserRouter>
 			</ThemeProvider>
 		</UserContextProvider>
 	);
