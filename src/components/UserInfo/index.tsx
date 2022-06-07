@@ -8,15 +8,15 @@ export const UserInfo: React.FC = () => {
 	const { userData } = useContext(UserContext);
 
 	return (
-		<S.Container>
+		<>
 			{userData.login ? (
-				<>
+				<S.Container>
 					<UserPerfil userData={userData} />
 					<UserNumbers userData={userData} />
-				</>
+				</S.Container>
 			) : (
-				<span />
+				<S.Line />
 			)}
-		</S.Container>
+		</>
 	);
 };
