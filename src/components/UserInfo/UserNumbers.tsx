@@ -1,20 +1,24 @@
-type UserNumbers = {
-	followers: number;
-	following: number;
-	public_repos: number;
+import { useNavigate } from 'react-router-dom';
+import { UserNumbersType } from '../../types/user';
+
+type UserNumbersProps = {
+	userData: UserNumbersType;
 };
 
-type UserDataProps = {
-	userData: UserNumbers;
-};
+export const UserNumbers = ({ userData }: UserNumbersProps) => {
+	const navigate = useNavigate();
 
-export const UserNumbers = ({ userData }: UserDataProps) => {
+	const handleClick = (path: string) => {
+		navigate(path);
+	};
+
 	return (
 		<div>
-			<section>
+			<section onClick={() => handleClick('/repositories')}>
 				<p>{userData?.public_repos}</p>
 				<p>Repositórios</p>
 			</section>
+
 			<section>
 				<p>{userData?.followers}</p>
 				<p>Seguidores</p>
