@@ -1,15 +1,10 @@
-type UserPerfil = {
-	avatar_url: string;
-	name: string;
-	login: string;
-	bio?: string;
+import { UserPerfilType } from '../../types/user';
+
+type UserPerfilProps = {
+	userData: UserPerfilType;
 };
 
-type UserDataProps = {
-	userData: UserPerfil;
-};
-
-export const UserPerfil = ({ userData }: UserDataProps) => {
+export const UserPerfil = ({ userData }: UserPerfilProps) => {
 	return (
 		<>
 			<img src={userData?.avatar_url} alt="foto de perfil" />
