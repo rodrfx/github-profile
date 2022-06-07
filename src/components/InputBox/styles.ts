@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const Container = styled.div`
 	width: 90%;
 	margin: 1.5rem auto;
+	height: 9rem;
 	background: ${(props) => props.theme.colors.primary};
 	opacity: 0.8;
 	border-radius: 10px;
@@ -11,7 +12,6 @@ export const Container = styled.div`
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	height: 9rem;
 
 	label {
 		font-size: 2rem;
@@ -52,10 +52,10 @@ export const Container = styled.div`
 	}
 
 	@media (min-width: 768px) and (max-width: 1024px) {
-		max-width: 500px;
+		max-width: 31.25rem;
 	}
 
 	@media (min-width: 1025px) {
-		max-width: 600px;
+		max-width: 37.5rem;
 	}
 `;
