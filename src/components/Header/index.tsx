@@ -1,16 +1,15 @@
-import { shade } from 'polished';
+import { Switch } from '@nextui-org/react';
 import React, { useContext } from 'react';
 import { BsGithub } from 'react-icons/bs';
-import Switch from 'react-switch';
 import { ThemeContext } from 'styled-components';
 import * as S from './styles';
 
 interface Props {
-	toggleTheme(): void;
+	toggleTheme: () => void;
 }
 
 export const Header: React.FC<Props> = ({ toggleTheme }) => {
-	const { colors, title } = useContext(ThemeContext);
+	const { title } = useContext(ThemeContext);
 
 	return (
 		<S.Container>
@@ -21,18 +20,13 @@ export const Header: React.FC<Props> = ({ toggleTheme }) => {
 				</div>
 
 				<div>
-					<S.SunIcon size={20} />
+					<S.SunIcon size={22} />
 
 					<Switch
 						onChange={toggleTheme}
 						checked={title === 'dark'}
-						checkedIcon={false}
-						uncheckedIcon={false}
-						height={10}
-						width={30}
-						handleDiameter={16}
-						offColor={colors.secondary}
-						onColor={shade(0.4, colors.secondary)}
+						color="secondary"
+						size="sm"
 					/>
 
 					<S.MoonIcon size={18} />
