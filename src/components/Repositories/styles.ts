@@ -1,5 +1,3 @@
-import { BsFillArrowLeftSquareFill } from 'react-icons/bs';
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const Container = styled.main`
@@ -14,19 +12,6 @@ export const Container = styled.main`
 
 	display: flex;
 	flex-direction: column;
-
-	button {
-		align-self: flex-start;
-		border: 0;
-		background: ${(props) => props.theme.colors.primary};
-		opacity: 0.8;
-		padding: 0.5rem;
-
-		&:hover {
-			background: ${(props) => props.theme.colors.primary};
-			opacity: 0.6;
-		}
-	}
 
 	span {
 		position: absolute;
@@ -43,27 +28,13 @@ export const Container = styled.main`
 
 	@media (min-width: 768px) and (max-width: 1024px) {
 		max-width: 31.25rem;
-		max-height: 38.75rem;
+		max-height: 83vh;
 	}
 
 	@media (min-width: 1025px) {
 		max-width: 37.5rem;
-		max-height: 40.63rem;
+		max-height: 85vh;
 	}
-`;
-
-export const ArrowBtn = styled(BsFillArrowLeftSquareFill)`
-	fill: ${(props) => props.theme.colors.text};
-	margin-right: 5px;
-`;
-
-export const LinkBtn = styled(Link)`
-	text-decoration: none;
-	color: ${(props) => props.theme.colors.text};
-
-	display: flex;
-	justify-content: center;
-	align-items: center;
 `;
 
 export const Header = styled.header`
