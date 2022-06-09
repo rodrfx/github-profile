@@ -10,7 +10,7 @@ type UserContextProps = {
 	userData: User;
 	setUserData: (user: User) => void;
 	userRepositories: Repository[];
-	setUserRepositories: (repository: any) => void;
+	setUserRepositories: (repository: Repository[]) => void;
 };
 
 export const UserContext = createContext<UserContextProps>(
@@ -19,7 +19,7 @@ export const UserContext = createContext<UserContextProps>(
 
 export const UserContextProvider = ({ children }: UserContextProviderProps) => {
 	const [userData, setUserData] = useState({} as User);
-	const [userRepositories, setUserRepositories] = useState([]);
+	const [userRepositories, setUserRepositories] = useState([] as Repository[]);
 
 	return (
 		<UserContext.Provider
