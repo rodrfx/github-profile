@@ -9,6 +9,6 @@ export const getUserData = async (
 		const response = await api.get<User>(`${username}`);
 		setUserData(response.data);
 	} catch (error) {
-		console.error(error);
+		alert(error);
 	}
 };
