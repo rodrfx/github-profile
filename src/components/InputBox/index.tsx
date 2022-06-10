@@ -1,14 +1,20 @@
 import React, { FormEvent, useContext, useState } from 'react';
 import { BsSearch } from 'react-icons/bs';
 import { UserContext } from '../../context/UserContext';
+import { getUserFollowers } from '../../services/followers';
+import { getUserFollowing } from '../../services/following';
 import { getUserRepositories } from '../../services/repositories';
 import { getUserData } from '../../services/user';
 import * as S from './styles';
 
 export const InputBox: React.FC = () => {
 	const [username, setUsername] = useState('');
-
-	const { setUserData, setUserRepositories } = useContext(UserContext);
+	const {
+		setUserData,
+		setUserRepositories,
+		setUserFollowers,
+		setUserFollowing,
+	} = useContext(UserContext);
 
 	const handleInputName = (event: React.FormEvent<HTMLInputElement>) => {
 		setUsername(event.currentTarget.value);
@@ -16,8 +22,11 @@ export const InputBox: React.FC = () => {
 
 	const handleSubmit = (event: FormEvent) => {
 		event.preventDefault();
+
 		getUserData(username, setUserData);
 		getUserRepositories(username, setUserRepositories);
+		getUserFollowers(username, setUserFollowers);
+		getUserFollowing(username, setUserFollowing);
 
 		setUsername('');
 	};
