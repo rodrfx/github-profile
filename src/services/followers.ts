@@ -1,11 +1,13 @@
+import { Follower } from '../types/follower';
 import { api } from './api';
+
 export const getUserFollowers = async (
 	username: string,
-	setUserFollowers: () => void
+	setUserFollowers: (follower: Follower[]) => void
 ) => {
 	try {
-		const followers = await api.get(`${username}/followers`);
-		console.log(followers.data);
+		const response = await api.get(`${username}/followers`);
+		setUserFollowers(response.data);
 	} catch (error) {
 		console.error(error);
 	}
