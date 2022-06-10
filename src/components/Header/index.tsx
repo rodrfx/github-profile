@@ -1,6 +1,7 @@
 import { Switch } from '@nextui-org/react';
 import React, { useContext } from 'react';
 import { BsGithub } from 'react-icons/bs';
+import { useNavigate } from 'react-router-dom';
 import { ThemeContext } from 'styled-components';
 import * as S from './styles';
 
@@ -10,11 +11,12 @@ interface Props {
 
 export const Header: React.FC<Props> = ({ toggleTheme }) => {
 	const { title } = useContext(ThemeContext);
+	const navigate = useNavigate();
 
 	return (
 		<S.Container>
 			<S.Content>
-				<div>
+				<div onClick={() => navigate('/')}>
 					<BsGithub size={20} />
 					<h1>GitHub Profile</h1>
 				</div>
