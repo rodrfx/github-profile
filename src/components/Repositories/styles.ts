@@ -6,7 +6,7 @@ export const Container = styled.main`
 	background: ${(props) => props.theme.colors.primary};
 	opacity: 0.8;
 	border-radius: 10px;
-	height: calc(100vh - 4.5rem);
+	height: calc(100vh - 9rem);
 
 	position: relative;
 
