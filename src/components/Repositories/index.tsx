@@ -1,7 +1,7 @@
-import { useContext, useEffect } from 'react';
+import { useContext } from 'react';
 import { Scrollbars } from 'react-custom-scrollbars';
-import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../../context/UserContext';
+import { useNavigateToHomepage } from '../../hooks/useNavigateToHomepage';
 import { BackButton } from '../BackButton';
 import { RepositoryItem } from '../RepositoryItem';
 import * as S from './styles';
@@ -9,15 +9,7 @@ import * as S from './styles';
 export const Repositories = () => {
 	const { userRepositories } = useContext(UserContext);
 
-	const navigate = useNavigate();
-
-	useEffect(() => {
-		const hasRepository = userRepositories.length > 1;
-
-		if (!hasRepository) {
-			navigate('/');
-		}
-	}, []);
+	useNavigateToHomepage(userRepositories);
 
 	return (
 		<S.Container>
