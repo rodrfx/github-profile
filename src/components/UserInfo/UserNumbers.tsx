@@ -19,11 +19,11 @@ export const UserNumbers = ({ userData }: UserNumbersProps) => {
 				<p>Repositórios</p>
 			</section>
 
-			<section>
+			<section onClick={() => handleClick('/followers')}>
 				<p>{userData?.followers}</p>
 				<p>Seguidores</p>
 			</section>
-			<section>
+			<section onClick={() => handleClick('/following')}>
 				<p>{userData?.following}</p>
 				<p>Seguindo</p>
 			</section>
